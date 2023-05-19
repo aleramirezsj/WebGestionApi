@@ -3,7 +3,6 @@ const movies = {
       const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
       const container = document.querySelector('#contenedorPeliculas');
       let contentHTML = '';
-  
       fetch(urlAPI
       ).then(res => res.json())
         .then(datos => {
@@ -32,20 +31,8 @@ const movies = {
       body: JSON.stringify(nuevaPeli)
       })  
       .then(response => {
-        if (!response.ok) {
-          throw new Error('Error en la solicitud: ' + response.status);
-        }
-        return response.json();
-      })
-      .then(datosRespuesta => {
-        // Manejar la respuesta de la API
-        console.log(datosRespuesta);
-      })
-      .catch(error => {
-        // Manejar errores
-        console.error('Error en la solicitud:', error);
+        return movies.render();
       });
-      movies.render();
     }
   };
   movies.render();
