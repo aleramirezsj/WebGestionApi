@@ -8,7 +8,7 @@ const movies = {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'x-apikey': '5ef3666c6a76415a50ddab26a474d3a68c6b4'
+          'x-apikey': '6466d9870b60fc42f4e197bf'
         }
       })
         .then(res => res.json())
