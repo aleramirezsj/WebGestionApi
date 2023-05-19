@@ -1,19 +1,14 @@
 const movies = {
     render: () => {
-      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas';
+      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
       const container = document.querySelector('#contenedorPeliculas');
       let contentHTML = '';
   
-      fetch(urlAPI,{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'x-apikey': '6466d9870b60fc42f4e197bf'
-        }
-      })
-        .then(res => res.json())
-        .then((json) => {
-          for (const peli of json.data.results) {
+      fetch(urlAPI
+      ).then(res => res.json())
+        .then(datos => {
+          console.log(datos[0]);
+          for (const peli of datos) {
             let trailerUrl = peli.trailer_url;
             contentHTML += `
               <div class="col-md-4">
@@ -25,6 +20,32 @@ const movies = {
           }
           container.innerHTML = contentHTML;
         })
+    },
+    addNewMovie:() => {
+      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
+      const nuevaPeli = {"nombre":"Interestelar","genero":"Ciencia Ficción","duracion":169,"trailer_url":"https://www.youtube.com/watch?v=UoSSbmD9vqc","sinopsis":"Gracias a un descubrimiento, un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un lugar con las condiciones necesarias para reemplazar a la Tierra y comenzar una nueva vida allí.","portada_url":"https://es.web.img2.acsta.net/c_310_420/pictures/14/10/02/11/07/341344.jpg"};
+      fetch(urlAPI, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(nuevaPeli)
+      })  
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Error en la solicitud: ' + response.status);
+        }
+        return response.json();
+      })
+      .then(datosRespuesta => {
+        // Manejar la respuesta de la API
+        console.log(datosRespuesta);
+      })
+      .catch(error => {
+        // Manejar errores
+        console.error('Error en la solicitud:', error);
+      });
+      movies.render();
     }
   };
   movies.render();
