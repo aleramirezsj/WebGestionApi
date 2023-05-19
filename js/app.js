@@ -1,10 +1,16 @@
 const movies = {
     render: () => {
-      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=5ef3666c6a76415a50ddab26a474d3a68c6b4';
+      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas';
       const container = document.querySelector('#contenedorPeliculas');
       let contentHTML = '';
   
-      fetch(urlAPI)
+      fetch(urlAPI,{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-apikey': '5ef3666c6a76415a50ddab26a474d3a68c6b4'
+        }
+      })
         .then(res => res.json())
         .then((json) => {
           for (const peli of json.data.results) {
