@@ -6,7 +6,7 @@ const movies = {
       fetch(urlAPI
       ).then(res => res.json())
         .then(datos => {
-          console.log(datos[0]);
+          //console.log(datos[0]);
           for (const peli of datos) {
             let trailerUrl = peli.trailer_url;
             contentHTML += `
@@ -20,9 +20,9 @@ const movies = {
           container.innerHTML = contentHTML;
         })
     },
-    addNewMovie:() => {
+    agregarNuevaPelicula:() => {
       const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
-      const nuevaPeli = {"nombre":"Interestelar","genero":"Ciencia Ficción","duracion":169,"trailer_url":"https://www.youtube.com/watch?v=UoSSbmD9vqc","sinopsis":"Gracias a un descubrimiento, un grupo de científicos y exploradores, encabezados por Cooper, se embarcan en un viaje espacial para encontrar un lugar con las condiciones necesarias para reemplazar a la Tierra y comenzar una nueva vida allí.","portada_url":"https://es.web.img2.acsta.net/c_310_420/pictures/14/10/02/11/07/341344.jpg"};
+      const nuevaPeli = {"nombre":"Matrix","genero":"Ciencia Ficción/Acción","duracion":136,"trailer_url":"https://www.youtube.com/watch?v=OM0tSTEQCQA","sinopsis":"The Matrix (conocida como Matrix en Hispanoamérica) es una película de acción y ciencia ficción de 1999 escrita y dirigida por las hermanas Wachowski y protagonizada por Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss y Hugo Weaving. Representa un futuro distópico en el que la humanidad está atrapada sin saberlo dentro de una realidad simulada llamada Matrix, que las máquinas inteligentes han creado para distraer a los humanos mientras usan sus cuerpos como fuente de energía en campos de cultivo","portada_url":"https://pics.filmaffinity.com/Matrix-374933715-large.jpg"};
       fetch(urlAPI, {
       method: 'POST',
       headers: {
