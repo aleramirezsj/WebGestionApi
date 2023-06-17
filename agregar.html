@@ -16,7 +16,7 @@
     <p>Este proyecto es una demostración de gestión de películas mediante API REST.</p>
     <div class="container-fluid">
         <h2>Agregando películas</h2>
-        <form method="post" >
+        <form method="post" onsubmit="return false;">
             <div class="mb-3">
                 <label for="txtNombre" class="form-label">Nombre:</label>
                 <input type="text" class="form-control" id="txtNombre" name="txtNombre">
@@ -46,7 +46,9 @@
             </div>
         </form>
       </div>
-    
+      <!--<div id="contenedorPeliculas">
+
+      </div>-->    
 
     <script src="js/app.js"></script>
 
