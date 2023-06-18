@@ -76,11 +76,7 @@ const movies = {
         confirmButtonText: 'Si, quiero hacerlo!'
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            'Eliminado!',
-            `La película ${nombrePeliculaBorrar} fue borrada .`,
-            'satisfactoriamente'
-          )
+          
           const urlAPI = `https://practprof2023-2855.restdb.io/rest/peliculas/${idPeliculaBorrar}?apikey=6466d9870b60fc42f4e197bf`
           //`https://pracprof2023-af4f.restdb.io/rest/peliculas/${idPeliculaBorrar}?apikey=6467b09a0b60fc42f4e197fa`
       fetch(urlAPI, {
@@ -89,6 +85,12 @@ const movies = {
         .then(response => {
           console.log(response);
           return movies.obtenerTodos();
+        }).then(response =>{
+          Swal.fire(
+            'Eliminado!',
+            `La película ${nombrePeliculaBorrar} fue borrada .`,
+            'satisfactoriamente'
+          )
         });
         }
       })
