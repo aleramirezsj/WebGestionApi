@@ -33,7 +33,21 @@ const movies = {
         })
     },
     agregarNuevaPelicula:() => {
-      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
+      const txtIdPelicula=document.getElementById('txtIdPelicula');
+      let urlAPI='';
+      let methodAPI='';
+      if(txtIdPelicula.value==='')
+      {
+        urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
+        methodAPI= 'POST';
+      }
+      else
+      {
+        urlAPI = `https://practprof2023-2855.restdb.io/rest/peliculas/${txtIdPelicula.value}?apikey=6466d9870b60fc42f4e197bf`;
+        methodAPI='PUT';
+      }
+
+      
       //'https://pracprof2023-af4f.restdb.io/rest/peliculas?apikey=6467b09a0b60fc42f4e197fa';
       const txtNombre=document.getElementById('txtNombre');
       //alert(`agregando la película:${txtNombre.value}`);
@@ -54,7 +68,7 @@ const movies = {
       console.log(nuevaPeli);
       const otraPeli = {"nombre":"Matrix Json","genero":"Ciencia Ficción/Acción Json","duracion":138,"trailer_url":"https://www.youtube.com/watch?v=OM0tSTEQCQA","sinopsis":"The Matrix Json (conocida como Matrix en Hispanoamérica) es una película de acción y ciencia ficción de 1999 escrita y dirigida por las hermanas Wachowski y protagonizada por Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss y Hugo Weaving. Representa un futuro distópico en el que la humanidad está atrapada sin saberlo dentro de una realidad simulada llamada Matrix, que las máquinas inteligentes han creado para distraer a los humanos mientras usan sus cuerpos como fuente de energía en campos de cultivo","portada_url":"https://pics.filmaffinity.com/Matrix-374933715-large.jpg"};
       fetch(urlAPI, {
-      method: 'POST',
+      method: methodAPI,
       headers: {
         'Content-Type': 'application/json'
       },
@@ -104,6 +118,7 @@ const movies = {
         ).then(res => res.json())
           .then(datos => {
             console.log(datos);
+            document.getElementById('txtIdPelicula').value=idPeliculaEditar;
             document.getElementById('txtNombre').value=datos.nombre;
             document.getElementById('txtGenero').value=datos.genero;
             document.getElementById('txtDuracion').value=datos.duracion;

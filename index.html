@@ -34,6 +34,7 @@ onclick="document.getElementById('formPelicula').reset();"
         </div>
         <div class="modal-body">
             <form method="post" id="formPelicula" onsubmit="return false;">
+                <input type="hidden" name="txtIdPelicula" id="txtIdPelicula">
                 <div class="mb-3">
                     <label for="txtNombre" class="form-label">Nombre:</label>
                     <input type="text" class="form-control" id="txtNombre" name="txtNombre">
