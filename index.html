@@ -16,6 +16,58 @@
     <h1>Gestión de Películas con API REST</h1>
     <p>Este proyecto es una demostración de gestión de películas mediante API REST.</p>
     <button onclick="window.location.href='agregar.html'">Agregar Pelicula</button>
+    
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarEditarModal">
+    Agregar película
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="agregarEditarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar/editar película</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <form method="post" onsubmit="return false;">
+                <div class="mb-3">
+                    <label for="txtNombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="txtNombre" name="txtNombre">
+                </div>
+                <div class="mb-3">
+                    <label for="txtGenero" class="form-label">Genero:</label>
+                    <input type="text" class="form-control" id="txtGenero" name="txtGenero">
+                </div>
+                <div class="mb-3">
+                    <label for="txtDuracion" class="form-label">Duración:</label>
+                    <input type="text" class="form-control" id="txtDuracion" name="txtDuracion">
+                </div>
+                <div class="mb-3">
+                    <label for="txtTrailerUrl" class="form-label">Url del trailer:</label>
+                    <input type="text" class="form-control" id="txtTrailerUrl" name="txtTrailerUrl">
+                </div>
+                <div class="mb-3">
+                    <label for="txtSinopsis" class="form-label">Sinopsis:</label>
+                    <textarea rows="4" class="form-control" id="txtSinopsis" name="txtSinopsis"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="txtPortadaUrl" class="form-label">Url imagen de portada:</label>
+                    <input type="text" class="form-control" id="txtPortadaUrl" name="txtPortadaUrl">
+                </div>
+                
+            </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" onclick="movies.agregarNuevaPelicula();">Guardar los cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
     <div id="contenedorPeliculas">
 
     </div>
