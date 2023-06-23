@@ -35,8 +35,8 @@ const movies = {
     agregarNuevaPelicula:() => {
       const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
       //'https://pracprof2023-af4f.restdb.io/rest/peliculas?apikey=6467b09a0b60fc42f4e197fa';
-      const txtNombre=document.querySelector('#txtNombre');
-      alert(`agregando la película:${txtNombre.value}`);
+      const txtNombre=document.getElementById('txtNombre');
+      //alert(`agregando la película:${txtNombre.value}`);
       const txtGenero=document.getElementById('txtGenero');
       const txtDuracion=document.getElementById('txtDuracion');
       const txtTrailerUrl=document.getElementById('txtTrailerUrl');
@@ -98,7 +98,19 @@ const movies = {
        
     },
     editarPelicula:(idPeliculaEditar)=>{
-      alert("Editando la película con el ID="+idPeliculaEditar);
+      //alert("Editando la película con el ID="+idPeliculaEditar);
+      const urlAPI = `https://practprof2023-2855.restdb.io/rest/peliculas/${idPeliculaEditar}?apikey=6466d9870b60fc42f4e197bf`;
+      fetch(urlAPI
+        ).then(res => res.json())
+          .then(datos => {
+            document.getElementById('txtNombre').value=datos.nombre;
+            document.getElementById('txtGenero').value=datos.genero;
+            document.getElementById('txtDuracion').value=datos.duracion;
+            document.getElementById('txtTrailerUrl').value=datos.trailer_url;
+            document.getElementById('txtSinopsis').value=datos.sinopsis;
+            document.getElementById('txtPortadaUrl').value=datos.portada_url;
+          });
+
     }
   };
   //movies.obtenerTodos();
