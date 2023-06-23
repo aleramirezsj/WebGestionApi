@@ -18,7 +18,9 @@
     <button onclick="window.location.href='agregar.html'">Agregar Pelicula</button>
     
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarEditarModal">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#agregarEditarModal"
+onclick="document.getElementById('formPelicula').reset();"
+>
     Agregar película
   </button>
   
@@ -31,7 +33,7 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form method="post" onsubmit="return false;">
+            <form method="post" id="formPelicula" onsubmit="return false;">
                 <div class="mb-3">
                     <label for="txtNombre" class="form-label">Nombre:</label>
                     <input type="text" class="form-control" id="txtNombre" name="txtNombre">

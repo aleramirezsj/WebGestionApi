@@ -103,12 +103,18 @@ const movies = {
       fetch(urlAPI
         ).then(res => res.json())
           .then(datos => {
+            console.log(datos);
             document.getElementById('txtNombre').value=datos.nombre;
             document.getElementById('txtGenero').value=datos.genero;
             document.getElementById('txtDuracion').value=datos.duracion;
             document.getElementById('txtTrailerUrl').value=datos.trailer_url;
             document.getElementById('txtSinopsis').value=datos.sinopsis;
             document.getElementById('txtPortadaUrl').value=datos.portada_url;
+
+            const ventanaEditar=document.getElementById('agregarEditarModal');
+            let modal = new bootstrap.Modal(ventanaEditar);
+            modal.show();
+
           });
 
     }
