@@ -25,8 +25,8 @@ const movies = {
                     <summary>${peli.nombre}</summary>
                     <p>${peli.sinopsis}</p>
                   </details>
-                  <a href="#" onclick="movies.eliminarPelicula('${peli._id}','${peli.nombre}');" >Eliminar</a>
-                  <a href="#" onclick="movies.editarPelicula('${peli._id}');" >Editar</a>
+                  <a href="" onclick="movies.eliminarPelicula('${peli._id}','${peli.nombre}');" >Eliminar</a>
+                  <a href="" onclick="movies.editarPelicula('${peli._id}');" >Editar</a>
               </div>`;
           }
           divContenedorPeliculas.innerHTML = contenidoHTML;
