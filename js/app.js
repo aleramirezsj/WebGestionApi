@@ -2,8 +2,8 @@ const movies = {
     //definimos la función que obtiene todas las peliculas
     obtenerTodos: () => {
       //creamos una constante que tiene la URL de nuestra API
-      const urlAPI = 'https://pracprof2023-af4f.restdb.io/rest/peliculas?apikey=6467b09a0b60fc42f4e197fa';
-      //'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
+      const urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
+      //'https://pracprof2023-af4f.restdb.io/rest/peliculas?apikey=6467b09a0b60fc42f4e197fa';
       //Creamos una constante que tendrá una referencia directa con el DIV "contenedorPeliculas" y nos permitirá cargarle contenido
       const divContenedorPeliculas = document.querySelector('#contenedorPeliculas');
       //cremos una variable vacía que contendrá todo el código HTML que vamos a insertar
@@ -38,12 +38,12 @@ const movies = {
       let methodAPI='';
       if(txtIdPelicula.value==='')
       {
-        urlAPI = 'https://pracprof2023-af4f.restdb.io/rest/peliculas?apikey=6467b09a0b60fc42f4e197fa';
+        urlAPI = 'https://practprof2023-2855.restdb.io/rest/peliculas?apikey=6466d9870b60fc42f4e197bf';
         methodAPI= 'POST';
       }
       else
       {
-        urlAPI = `https://pracprof2023-af4f.restdb.io/rest/peliculas/${txtIdPelicula.value}?apikey=6467b09a0b60fc42f4e197fa`;
+        urlAPI = `https://practprof2023-2855.restdb.io/rest/peliculas/${txtIdPelicula.value}?apikey=6466d9870b60fc42f4e197bf`;
         methodAPI='PUT';
       }
 
@@ -92,7 +92,7 @@ const movies = {
       }).then((result) => {
         if (result.isConfirmed) {
           
-          const urlAPI = `https://pracprof2023-af4f.restdb.io/rest/peliculas/${idPeliculaBorrar}?apikey=6467b09a0b60fc42f4e197fa`
+          const urlAPI = `https://practprof2023-2855.restdb.io/rest/peliculas/${idPeliculaBorrar}?apikey=6466d9870b60fc42f4e197bf`
           //`https://pracprof2023-af4f.restdb.io/rest/peliculas/${idPeliculaBorrar}?apikey=6467b09a0b60fc42f4e197fa`
       fetch(urlAPI, {
         method: 'DELETE'
@@ -113,12 +113,12 @@ const movies = {
     },
     editarPelicula:(idPeliculaEditar)=>{
       //alert("Editando la película con el ID="+idPeliculaEditar);
-      const urlAPI = `https://pracprof2023-af4f.restdb.io/rest/peliculas/${idPeliculaEditar}?apikey=6467b09a0b60fc42f4e197fa`;
+      const urlAPI = `https://practprof2023-2855.restdb.io/rest/peliculas/${idPeliculaEditar}?apikey=6466d9870b60fc42f4e197bf`;
       fetch(urlAPI
         ).then(res => res.json())
           .then(datos => {
             console.log(datos);
-            document.getElementById('txtIdPelicula').value=idPeliculaEditar;els
+            document.getElementById('txtIdPelicula').value=idPeliculaEditar;
             document.getElementById('txtNombre').value=datos.nombre;
             document.getElementById('txtGenero').value=datos.genero;
             document.getElementById('txtDuracion').value=datos.duracion;
