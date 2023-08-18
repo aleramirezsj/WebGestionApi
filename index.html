@@ -11,6 +11,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/formRegistro.js" defer></script>
+    <script type="module" src="js/formIniciarSesion.js" defer></script>
+    <script type="module" src="js/loginGoogle.js" defer></script>
     <script src="js/app.js" defer></script> 
     <script type="module" src="js/loginCheck.js" defer></script> 
     <script type="module" src="js/cerrarSesion.js" defer></script>  
@@ -117,12 +119,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        ...
+        <form id="formIniciarSesion">
+          <label for="txtEmail" class="form-label">Email:</label>
+          <input type="email" name="txtEmail" id="txtEmail" class="form-control" required><br/>
+          <label for="txtPassword" class="form-label">Contraseña:</label>
+          <input type="password" name="txtPassword" id="txtPassword" class="form-control" required><br/>
+          <input type="submit" value="Enviar" class="btn btn-primary form-control">
+        </form>
+        <button class="btn btn-info mt-3" id="btnLoginGoogle">Google</button>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
     </div>
   </div>
 </div>
