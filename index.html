@@ -11,7 +11,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11" defer></script>
     <script type="module" src="js/firebase.js"></script>
     <script type="module" src="js/formRegistro.js" defer></script>
-    <script src="js/app.js" defer></script>    
+    <script src="js/app.js" defer></script> 
+    <script type="module" src="js/loginCheck.js" defer></script> 
+    <script type="module" src="js/cerrarSesion.js" defer></script>  
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js" defer></script>        
@@ -29,13 +31,13 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#iniciarSesionModal">Iniciar sesión</a>
+              <a class="nav-link desconectado" href="#" data-bs-toggle="modal" data-bs-target="#iniciarSesionModal">Iniciar sesión</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registrarseModal">Registrarse</a>
+              <a class="nav-link desconectado" href="#" data-bs-toggle="modal" data-bs-target="#registrarseModal">Registrarse</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#" >Cerrar sesión</a>
+            <li class="nav-item conectado">
+              <a class="nav-link" href="#" id="cerrarSesionMenu" >Cerrar sesión</a>
             </li>            
           </ul>
         </div>
