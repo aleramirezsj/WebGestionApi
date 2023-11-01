@@ -1,5 +1,5 @@
 import { auth } from "./firebase.js";
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
 const formRegistro=document.getElementById('formRegistro'); //tomamos la referencia al formulario de registro
 

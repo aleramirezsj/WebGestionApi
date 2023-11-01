@@ -1,5 +1,5 @@
 import { auth } from "./firebase.js";
-import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
 const formIniciarSesion=document.getElementById('formIniciarSesion'); //tomamos la referencia al formulario de registro
 

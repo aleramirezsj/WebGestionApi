@@ -1,7 +1,7 @@
   // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 
-  import { getAuth, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-auth.js";
+  import { getAuth, onAuthStateChanged  } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
   import { loginCheck } from "./loginCheck.js";
 
@@ -27,6 +27,6 @@ export const auth = getAuth(app);
   console.log(app);
   console.log(auth);
 
-  onAuthStateChanged(auth, async (user)=>{
-    loginCheck(user);
+  onAuthStateChanged(auth, async (credenciales)=>{
+      loginCheck(credenciales);
 })

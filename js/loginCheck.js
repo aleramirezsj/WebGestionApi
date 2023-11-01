@@ -6,8 +6,20 @@ console.log(elementosDesconectado);
 
 export const loginCheck=(user)=>{
     if (user) {
-        elementosConectado.forEach(elemento=>elemento.style.display='block');
-        elementosDesconectado.forEach(elemento=>elemento.style.display='none');
+        if(user.emailVerified){
+            elementosConectado.forEach(elemento=>elemento.style.display='block');
+            elementosDesconectado.forEach(elemento=>elemento.style.display='none');
+        }else{
+            Toastify({
+                text: "Debe verificar su correo electrónico",
+                duration: 3000,
+                gravity: 'bottom',
+                position: 'right',
+                style: {
+                    background: '#FF4136'
+                }
+                }).showToast();
+        }
     }else{
         elementosConectado.forEach(elemento=>elemento.style.display='none');
         elementosDesconectado.forEach(elemento=>elemento.style.display='block');
